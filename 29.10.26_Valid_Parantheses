@@ -1,0 +1,24 @@
+class Solution
+{
+public:
+    bool isValid(string s)
+    {
+        string st;
+        for (char c : s)
+        {
+            if (c == '(' || c == '[' || c == '{')
+            {
+                st += c;
+            }
+            else if (st.empty() || c - st.back() < 1 || c - st.back() > 2)
+            {
+                return false;
+            }
+            else
+            {
+                st.pop_back();
+            }
+        }
+        return st.empty();
+    }
+};
