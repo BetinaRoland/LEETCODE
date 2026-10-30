@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int trap(vector<int>& a) 
+    {
+        int l=0,h=a.size()-1,t=0;
+        int y=0,u=0;
+        while(l<=h)
+        {
+            if(a[l]<=a[h])
+            {
+                if(a[l]>y)
+                y=a[l];
+                else
+                t+=y-a[l];
+                l++;
+            }
+            else
+            {
+                if(a[h]>u)
+                u=a[h];
+                else
+                t+=u-a[h];
+                h--;
+            }
+        }  
+        return t;      
+    }
+};
+
+//like going to the centre from both sides
