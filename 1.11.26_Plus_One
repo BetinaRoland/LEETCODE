@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) 
+    {
+       // vector<int> a;
+        int n=digits.size()-1,c=0;
+        while(n>=0)
+        {
+            if(digits[n]!=9)
+            {
+                digits[n]++;
+                c=0;
+                break;
+            }
+            else
+            {
+                digits[n]=0;
+                c=1;
+            }
+            n--;
+        }
+        if(c==1)
+        digits.insert(digits.begin(),1);
+
+        return digits;
+    }
+};
